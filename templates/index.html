@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--Card1-->
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Memory details</h5>
+      <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <p class="card-text">
+          {% for v, i in memory.items() %}
+            {% if v == 'Percentage' %}
+                {{"{}: {} %".format(v, i)}}<br>
+            {% else %}
+            {{"{}: {} GB".format(v, i)}}<br>
+            {% endif %} 
+        {% endfor %}</p>
+        <a href="#" class="btn btn-primary">Show in Megabyte</a>
+    </div>
+  </div>
+
+<!--Card2-->
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Swap memory details</h5>
+      <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <p class="card-text">
+          {% for v, i in swap.items() %}
+            {% if v == 'Percentage' %}
+                {{"{}: {} %".format(v, i)}}<br>
+            {% else %}
+            {{"{}: {} GB".format(v, i)}}<br>
+            {% endif %} 
+        {% endfor %}</p>
+        <a href="#" class="btn btn-primary">Show in Megabyte</a>
+    </div>
+  </div>
+
+<!--Card3-->
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">CPU usage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Number of cores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Frequency</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">CPU info</h5>
+    <p class="card-text"></p>
+  </div>
+</div>
+
+{% endblock content %}
