@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">Memory details</h5>
       <h6 class="card-subtitle mb-2 text-muted"></h6>
-      <p class="card-text">
+      <p class="card-text" id="mb1">
           {% for v, i in memory.items() %}
             {% if v == 'Percentage' %}
                 {{"{}: {} %".format(v, i)}}<br>
@@ -13,7 +13,7 @@
             {{"{}: {} GB".format(v, i)}}<br>
             {% endif %} 
         {% endfor %}</p>
-        <a href="#" class="btn btn-primary">Show in Megabyte</a>
+        <button onclick= type="button" class="btn btn-dark">Show in Megabyte</button>
     </div>
   </div>
 
@@ -30,29 +30,73 @@
             {{"{}: {} GB".format(v, i)}}<br>
             {% endif %} 
         {% endfor %}</p>
-        <a href="#" class="btn btn-primary">Show in Megabyte</a>
+        <button type="button" class="btn btn-dark">Show in Megabyte</button>
     </div>
   </div>
 
 <!--Card3-->
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
+<div class="card" style="width: 40rem;">
+    <div class="card-header"> 
+      <ul class="nav nav-tabs card-header-tabs pull-right"  id="Tab" role="tablist">
+        <li class="nav-item">
+         <a class="nav-link active" id="usage-tab" data-toggle="tab" href="#usage" role="tab" aria-controls="usage" aria-selected="True">CPU usage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="cores-tab" data-toggle="tab" href="#cores" role="tab" aria-controls="cores" aria-selected="false">Number of cores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="freq-tab" data-toggle="tab" href="#freq" role="tab" aria-controls="freq" aria-selected="false">Frequency</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body"> 
+     <div class="tab-content" id="TabContent">
+       <div class="tab-pane fade show active" id="usage" role="tabpanel" aria-labelledby="usage-tab">
+         <p class="card-text">
+          {% for i in cpurange %}
+            {{'Core' ~ i|string ~ ':' ~ ' ' ~  cpu[i]|string ~ '%'}}
+            <br>
+          {% endfor %}</p></div>
+       <div class="tab-pane fade" id="cores" role="tabpanel" aria-labelledby="cores-tab">{{cpucount}}</div>
+       <div class="tab-pane fade" id="freq" role="tabpanel" aria-labelledby="freq-tab">
+          <p class="card-text">
+              {% for v, i in frequency.items() %}
+                    {{"{}: {} MHz".format(v, i)}}<br>
+            {% endfor %}
+          </p>
+       </div>
+          </div>
+    </div>
+  </div>
+
+  <!--Card4-->
+<div class="card" style="width: 28rem;">
+  <div class="card-header"> 
+    <ul class="nav nav-tabs card-header-tabs pull-right"  id="Tab2" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" href="#">CPU usage</a>
+       <a class="nav-link active" id="disk-usage-tab" data-toggle="tab" href="#disk-usage" role="tab" aria-controls="disk-usage" aria-selected="True">Disk usage</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Number of cores</a>
+        <a class="nav-link" id="partitions-tab" data-toggle="tab" href="#partitions" role="tab" aria-controls="partitions" aria-selected="false">Disk partitions</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Frequency</a>
-      </li>
+      
     </ul>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">CPU info</h5>
-    <p class="card-text"></p>
+  <div class="card-body"> 
+   <div class="tab-content" id="TabContent">
+     <div class="tab-pane fade show active" id="disk-usage" role="tabpanel" aria-labelledby="disk-usage-tab">
+       <p class="card-text">
+      {% for v, i in disk_usage.items() %}
+        {% if v == 'Percentage' %}
+            {{"{}: {} %".format(v, i)}}<br>
+        {% else %}
+        {{"{}: {} GB".format(v, i)}}<br>
+        {% endif %} 
+    {% endfor %}</p></div>
+     <div class="tab-pane fade" id="partitions" role="tabpanel" aria-labelledby="partitions-tab">
+      
+     </div>
+        </div>
   </div>
 </div>
-
 {% endblock content %}
