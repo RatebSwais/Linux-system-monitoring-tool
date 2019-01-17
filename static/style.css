@@ -3,9 +3,10 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    margin: 30px auto;
 }
 
 .container .card {
     flex: 1 1 auto;
-    margin: 0 10px;
+    margin: 10px 10px;
 }

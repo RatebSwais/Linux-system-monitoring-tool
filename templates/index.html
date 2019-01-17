@@ -13,7 +13,7 @@
             {{"{}: {} GB".format(v, i)}}<br>
             {% endif %} 
         {% endfor %}</p>
-        <button onclick= type="button" class="btn btn-dark">Show in Megabyte</button>
+        <button type="button" class="btn btn-dark">Show in Megabyte</button>
     </div>
   </div>
 
@@ -94,7 +94,11 @@
         {% endif %} 
     {% endfor %}</p></div>
      <div class="tab-pane fade" id="partitions" role="tabpanel" aria-labelledby="partitions-tab">
-      
+      <p class="card-text">
+        {% for key, value in dparts.items() %}
+          {{"Partition#" ~ key|string ~ ":" ~ " " ~ value}}<br><br>
+        {% endfor %}
+      </p>
      </div>
         </div>
   </div>

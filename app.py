@@ -1,6 +1,7 @@
 import os 
 import subprocess
 import psutil   
+import re
 import math
 from bs4 import BeautifulSoup
 from flask import Flask, url_for, render_template
@@ -77,8 +78,21 @@ disk_usage = {
 
 #Disk partitions
 partis = psutil.disk_partitions(all=False)
-print partis
+dparts = dict()
+
+count = 0
+for i in partis:
+    dparts[count] = i
+    count += 1
+
+for key, value in dparts.items():
+    dparts[key]=re.findall(r'\((.*?)\)', str(value))
+
+
+
+
+
 #App routes
 @app.route('/')
 def proc():
-    return render_template('index.html', memory=memory, memory_mb=memory_mb, swap=swap, swap_mb=swap_mb, c=c, cpurange=cpurange, cpucount=cpucount, cpu=cpu, frequency=frequency, disk_usage=disk_usage)
+    return render_template('index.html', memory=memory, memory_mb=memory_mb, swap=swap, swap_mb=swap_mb, c=c, cpurange=cpurange, cpucount=cpucount, cpu=cpu, frequency=frequency, disk_usage=disk_usage, dparts=dparts)
