@@ -1,12 +1,33 @@
+* {
+    box-sizing:border-box;
+}
+
+.navbar {
+    max-height: inherit;
+    max-width: inherit;  
+}
 .container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     margin: 30px auto;
+    height: 100%;
+    width: 100%;
 }
 
 .container .card {
     flex: 1 1 auto;
     margin: 10px 10px;
+}
+
+.container #rproc {
+    overflow-y: scroll;
+    height: 20rem;
+}
+
+.sysgraph {
+    max-height: inherit;
+    max-width: inherit;
+    overflow: scroll;
 }

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="sysgraph">
+        <embed type="image/svg+xml" src= {{ chart|safe }} />
+</div>
+
+<div class="sysgraph">
+        <embed type="image/svg+xml" src= {{ chart|safe }} />
+</div>        
+{% endblock content %}

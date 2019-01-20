@@ -2,6 +2,15 @@
 {% block content %}
 <!--Card1-->
 <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Machine boot time</h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <p class="card-text">{{uptime}}</p>
+  </div>
+</div>
+
+<!--Card2-->
+<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Memory details</h5>
       <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -13,11 +22,10 @@
             {{"{}: {} GB".format(v, i)}}<br>
             {% endif %} 
         {% endfor %}</p>
-        <button type="button" class="btn btn-dark">Show in Megabyte</button>
     </div>
   </div>
 
-<!--Card2-->
+<!--Card3-->
 <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Swap memory details</h5>
@@ -30,12 +38,11 @@
             {{"{}: {} GB".format(v, i)}}<br>
             {% endif %} 
         {% endfor %}</p>
-        <button type="button" class="btn btn-dark">Show in Megabyte</button>
     </div>
   </div>
 
-<!--Card3-->
-<div class="card" style="width: 40rem;">
+<!--Card4-->
+<div class="card" style="width: 24rem;">
     <div class="card-header"> 
       <ul class="nav nav-tabs card-header-tabs pull-right"  id="Tab" role="tablist">
         <li class="nav-item">
@@ -69,7 +76,7 @@
     </div>
   </div>
 
-  <!--Card4-->
+  <!--Card5-->
 <div class="card" style="width: 28rem;">
   <div class="card-header"> 
     <ul class="nav nav-tabs card-header-tabs pull-right"  id="Tab2" role="tablist">
@@ -96,11 +103,22 @@
      <div class="tab-pane fade" id="partitions" role="tabpanel" aria-labelledby="partitions-tab">
       <p class="card-text">
         {% for key, value in dparts.items() %}
-          {{"Partition#" ~ key|string ~ ":" ~ " " ~ value}}<br><br>
+          {{"Partition" ~ key|string ~ ":" ~ " " ~ value}}<br><br>
         {% endfor %}
       </p>
      </div>
         </div>
+  </div>
+</div>
+
+<!--Card6-->
+<div class="card" style="width: 18rem;" id="rproc">
+  <div class="card-body">
+    <h5 class="card-title">Running processes</h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <p class="card-text">
+     
+    </p>
   </div>
 </div>
 {% endblock content %}
