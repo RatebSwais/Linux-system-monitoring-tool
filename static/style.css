@@ -34,6 +34,7 @@
 
 .jumbotron { 
     background: #060630;
+    border-radius: 0 !important;
 }
 
 .jumbotron img {
