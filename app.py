@@ -27,6 +27,16 @@ memory = {
     'Shared': round(mem.shared  / (1024.0 ** 3), 2),
 }
 
+pmemory = {
+    'Total': round(mem.total / (1024.0 ** 3), 2),
+    'Used': round(mem.used / (1024.0 ** 3), 2),
+    'Available': round(mem.available / (1024.0 ** 3), 2),
+    'Free' : round(mem.free / (1024.0 ** 3), 2),
+    'Buffers': round(mem.buffers / (1024.0 ** 3), 2),
+    'Cached': round(mem.cached / (1024.0 ** 3), 2),
+    'Shared': round(mem.shared  / (1024.0 ** 3), 2),
+}
+
 memory_mb = {
     'Total': round(mem.total / (1024.0 ** 2), 2),
     'Used': round(mem.used / (1024.0 ** 2), 2),
@@ -94,6 +104,7 @@ for i in partis:
 
 for key, value in dparts.items():
     dparts[key]=re.findall(r'\((.*?)\)', str(value))
+
 #Running processes
 pinfo = dict()
 rproc = dict()
@@ -108,14 +119,29 @@ def proc():
 
 @app.route('/graphs')
 def graph():
-    pie_chart = pygal.Bar(width=500, height=400, explicit_size=True)
-    pie_chart.title = 'CPU usage per core'
-   # pie_chart.add('IE', 19.5)
-   # pie_chart.add('Firefox', 36.6)
-   # pie_chart.add('Chrome', 36.3)
-   # pie_chart.add('Safari', 4.5)
-   # pie_chart.add('Opera', 2.3)
+    #Bar chart for CPU usage
+    bar_chart = pygal.Bar(width=500, height=400, explicit_size=True, range=(0, 100))
+    bar_chart.title = 'CPU usage per core (%)'
     for i, v in cpu.items():
-        pie_chart.add('Core' + str(i), v)
-    chart= pie_chart.render_data_uri()
-    return render_template('graphs.html', chart=chart)
+        bar_chart.add('Core' + str(i), v)
+    chart= bar_chart.render_data_uri()
+    #Pie chart for disk usage
+    pie_chart = pygal.Pie(width=500, height=400, explicit_size=True)
+    pie_chart.title = 'Disk usage (GB)'
+    for key, value in disk_usage.items():
+        pie_chart.add(key, value)
+    dchart = pie_chart.render_data_uri()
+    #H-bar for memory and swap memory
+    hbar = pygal.HorizontalBar(width=500, height=400, explicit_size=True)
+    hbar.title = 'Memory usage (GB)'
+    for key, value in pmemory.items():
+        hbar.add(key, value)
+    hbarchart = hbar.render_data_uri()
+
+    hbarswap = pygal.HorizontalBar(width=500, height=400, explicit_size=True)
+    hbarswap.title = 'Swap memory usage (GB)'
+    for key, value in swap.items():
+        hbarswap.add(key, value)
+    hbarswapchart = hbarswap.render_data_uri()
+
+    return render_template('graphs.html', chart=chart, dchart=dchart, hbarchart=hbarchart, hbarswapchart=hbarswapchart)
