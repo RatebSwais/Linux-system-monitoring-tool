@@ -63,6 +63,8 @@ cpu = dict()
 for i in cpurange:
     cpu[i] = c[i]
 
+
+
 #Fetch cpu frequency
 freq = psutil.cpu_freq()
 #Frequency dictionary
@@ -98,12 +100,6 @@ rproc = dict()
 for process in psutil.process_iter(attrs=['pid', 'name', 'username']):
     pinfo[process] = process.as_dict(attrs = ['pid', 'name', 'username'])
 
-
-    
-
-
-
-
     
 #App routes
 @app.route('/')
@@ -112,12 +108,14 @@ def proc():
 
 @app.route('/graphs')
 def graph():
-    pie_chart = pygal.Pie(width=500, height=400, explicit_size=True)
-    pie_chart.title = 'Browser usage in February 2012 (in %)'
-    pie_chart.add('IE', 19.5)
-    pie_chart.add('Firefox', 36.6)
-    pie_chart.add('Chrome', 36.3)
-    pie_chart.add('Safari', 4.5)
-    pie_chart.add('Opera', 2.3)
+    pie_chart = pygal.Bar(width=500, height=400, explicit_size=True)
+    pie_chart.title = 'CPU usage per core'
+   # pie_chart.add('IE', 19.5)
+   # pie_chart.add('Firefox', 36.6)
+   # pie_chart.add('Chrome', 36.3)
+   # pie_chart.add('Safari', 4.5)
+   # pie_chart.add('Opera', 2.3)
+    for i, v in cpu.items():
+        pie_chart.add('Core' + str(i), v)
     chart= pie_chart.render_data_uri()
     return render_template('graphs.html', chart=chart)
