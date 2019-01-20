@@ -58,6 +58,12 @@ swap = {
     'Percentage': round(swp.percent, 2),
 }
 
+pswap = {
+    'Total': round(swp.total / (1024.0 ** 3), 2),
+    'Used': round(swp.used / (1024.0 ** 3), 2),
+    'Free' : round(swp.free / (1024.0 ** 3), 2),
+}
+
 swap_mb = {
     'Total': round(swp.total / (1024.0 ** 2), 2),
     'Used': round(swp.used / (1024.0 ** 2), 2),
@@ -140,7 +146,7 @@ def graph():
 
     hbarswap = pygal.HorizontalBar(width=500, height=400, explicit_size=True)
     hbarswap.title = 'Swap memory usage (GB)'
-    for key, value in swap.items():
+    for key, value in pswap.items():
         hbarswap.add(key, value)
     hbarswapchart = hbarswap.render_data_uri()
 

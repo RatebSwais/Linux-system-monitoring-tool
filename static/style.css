@@ -3,8 +3,8 @@
 }
 
 .navbar {
-    max-height: inherit;
-    max-width: inherit;  
+    max-height: 100%;
+    max-width: 100%;  
 }
 .container {
     display: flex;
@@ -32,3 +32,22 @@
     overflow: scroll;
 }
 
+.jumbotron { 
+    background: #060630;
+}
+
+.jumbotron img {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    height: 300px;
+}
+
+.jumbotron h1 {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}
