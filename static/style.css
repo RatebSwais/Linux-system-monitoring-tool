@@ -23,10 +23,11 @@ h5 {
 }
 
 
-.nav-link {
+#navbarlink {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     font-size: 150%;
 }
+
 
 .container {
     display: flex;
@@ -41,6 +42,7 @@ h5 {
 .container .card {
     flex: 1 1 auto;
     margin: 10px 10px;
+    transition: all .3s
 }
 
 .container #rproc {
@@ -60,7 +62,7 @@ h5 {
     border-radius: 0 !important;
 }
 
-.jumbotron img {
+.jumbotron #astro {
     display:block;
     margin-left:auto;
     margin-right:auto;
@@ -81,14 +83,21 @@ h5 {
     border:solid grey;
 }
 
-img {
+.jumbotron #astro {
     transition: all .3s ease-in-out; 
 }
-img:hover {
+
+.jumbotron #astro:hover {
     transform: scale(1.2);
     z-index: 1;
 }
 
 #jumbo:hover {
     transform: scale(1.1)
+}
+
+#pc {
+    height: 200px;
+    width: 200px;
+    margin: 30px 30px;
 }

@@ -135,13 +135,13 @@ for process in psutil.process_iter(attrs=['pid', 'name', 'username']):
 #Network if_addresses
 ifa = psutil.net_if_addrs()
 for i, v in ifa.items():
-    ifa[i] = re.findall(r'\((.*)\)', str(v))[0].replace(")", "").replace("(", "")
+    ifa[i] = re.findall(r'\((.*)\)', str(v))[0].replace(")", "").replace("(", "").replace("'", "")
 
 sockets = []    
 #Socket connections
 socket_cons = psutil.net_connections()
 for i in socket_cons:
-    sockets = re.findall(r'\((.*?)\)', str(socket_cons))[0].replace("(", "")
+    sockets = re.findall(r'\((.*?)\)', str(socket_cons))[0].replace("(", "").replace("'", "")
 #App routes
 @app.route('/')
 def proc():
