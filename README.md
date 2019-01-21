@@ -1,2 +1,2 @@
-# Linux-system-monitoring-tool
+# Pymon, the python monitor
 Built using python and flask
