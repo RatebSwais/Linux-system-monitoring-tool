@@ -2,6 +2,20 @@
     box-sizing:border-box;
 }
 
+#jumbo {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 300%;
+}
+h1, p {
+    font-family: 'VT323', monospace;
+    font-size: 170%;
+}
+
+h5 {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 200%;
+}
+
 .navbar {
     max-height: 100%;
     max-width: 100%;  
@@ -32,6 +46,7 @@
     overflow-y: scroll;
     height: 20rem;
 }
+
 
 #sysgraph {
     max-height: inherit;

@@ -13,6 +13,15 @@ from flask import Flask, url_for, render_template, make_response
 app = Flask(__name__, template_folder='templates')
 #Local machine time
 uptime = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")
+
+#Battery status
+#Convert seconds to hours
+def secs2hours(secs):
+    mm, ss = divmod(secs, 60)   
+    hh, mm = divmod(mm, 60)
+    return "%d:%02d:%02d" % (hh, mm, ss)
+battery = psutil.sensors_battery()
+
 #Fetch memory info
 mem = psutil.virtual_memory()
 #Create dictionary of desired memory info, change to Gigabytes and round to 2 digits.
@@ -109,19 +118,34 @@ for i in partis:
     count += 1
 
 for key, value in dparts.items():
-    dparts[key]=re.findall(r'\((.*?)\)', str(value))
+    dparts[key]=re.findall(r'\((.*?)\)', str(value))[0]
 
 #Running processes
-pinfo = dict()
+"""pinfo = dict()
 rproc = dict()
+rcount = 0
 for process in psutil.process_iter(attrs=['pid', 'name', 'username']):
     pinfo[process] = process.as_dict(attrs = ['pid', 'name', 'username'])
+    rcount += 1
+    for key in range(rcount):
+        rproc[key] = pinfo[process]
+        print rproc[key]
+"""
 
-    
+#Network if_addresses
+ifa = psutil.net_if_addrs()
+for i, v in ifa.items():
+    ifa[i] = re.findall(r'\((.*)\)', str(v))[0].replace(")", "").replace("(", "")
+
+sockets = []    
+#Socket connections
+socket_cons = psutil.net_connections()
+for i in socket_cons:
+    sockets = re.findall(r'\((.*?)\)', str(socket_cons))[0].replace("(", "")
 #App routes
 @app.route('/')
 def proc():
-    return render_template('index.html', uptime=uptime, memory=memory, memory_mb=memory_mb, swap=swap, swap_mb=swap_mb, c=c, cpurange=cpurange, cpucount=cpucount, cpu=cpu, frequency=frequency, disk_usage=disk_usage, dparts=dparts)
+    return render_template('index.html', uptime=uptime, memory=memory, memory_mb=memory_mb, swap=swap, swap_mb=swap_mb, c=c, cpurange=cpurange, cpucount=cpucount, cpu=cpu, frequency=frequency, disk_usage=disk_usage, dparts=dparts, ifa=ifa, sockets=sockets)
 
 @app.route('/graphs')
 def graph():
