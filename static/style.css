@@ -5,6 +5,7 @@
 #jumbo {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     font-size: 300%;
+    transition: all .3s ease-in-out;
 }
 h1, p {
     font-family: 'VT323', monospace;
@@ -74,4 +75,20 @@ h5 {
     margin-top: 30px;
     color: white;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.card:hover {
+    border:solid grey;
+}
+
+img {
+    transition: all .3s ease-in-out; 
+}
+img:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+#jumbo:hover {
+    transform: scale(1.1)
 }
