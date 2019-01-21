@@ -1,2 +1,2 @@
 # Pymon, the python monitor
-Built using python and flask
+A simple monitoring tool built using python and the Flask web framework. 
