@@ -28,6 +28,10 @@ h5 {
     font-size: 150%;
 }
 
+.nav-link {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 150%;
+}
 
 .container {
     display: flex;
