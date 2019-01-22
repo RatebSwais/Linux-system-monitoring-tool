@@ -6,7 +6,7 @@ The tool is still under development, but the basic tasks are completed.
 
 [Installation](#Installation)
 
-[Docker adaptation](#Docker adaptation)
+[Pymon in a Docker container](#Pymon in a Docker container)
 
 ## Screenshots
 <p align="center">
@@ -74,3 +74,16 @@ The tool is still under development, but the basic tasks are completed.
    
    flask run
    ```
+## Pymon in a Docker container
+   If you wish to skip the above and use a pre-cooked Docker container, run the docker command below as root:
+   
+   `docker run -d -p 5000:5000 rain40/pymon:latest`
+   
+   If you do not have docker installed, you need to install it first:
+   
+   `sudo dnf install docker -y`
+   
+   
+   
+   
+   
