@@ -6,7 +6,7 @@ The tool is still under development, but the basic tasks are completed.
 
 [Installation](#Installation)
 
-[Pymon in a Docker container](##Pymon in a Docker container)
+[Pymon in a Docker container](#Pymon in a Docker container)
 
 ## Screenshots
 <p align="center">
