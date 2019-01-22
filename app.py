@@ -1,12 +1,9 @@
-import os 
 import psutil   
 import re
 import math
 import pygal
 import mimetypes
-from time import sleep
 import datetime
-from bs4 import BeautifulSoup
 from flask import Flask, url_for, render_template, make_response
 
 #Instantiate app
