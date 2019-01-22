@@ -57,7 +57,6 @@ The tool is still under development, but the basic tasks are completed.
    pip install psutil
    
    pip install pygal
-   
    ```
    
    
