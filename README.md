@@ -38,24 +38,28 @@ The tool is still under development, but the basic tasks are completed.
    
    Install python's virtual environment:
    ```
-      pip install virtualenv
-      
-      sudo dnf install virtualenv -y
+   pip install virtualenv
+   
+   sudo dnf install virtualenv -y
    ```
    Create the virtual environment inside the project folder and activate it 
    ```
-   virtualenv venv
+   python3 -m venv venv
       
    . venv/bin/activate
    ```
    
-   Now, install Flask 
+   Now, install Flask, psutil and pygal (modules needed to run the app):
    
-   `pip install Flask`
+   ```
+   pip install Flask
    
-   Install the packages in requirements.txt
+   pip install psutil
    
-   `pip install -r requirements.txt`
+   pip install pygal
+   
+   ```
+   
    
    It's time to start our app:
    
