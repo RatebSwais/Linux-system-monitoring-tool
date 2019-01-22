@@ -3,7 +3,9 @@ A simple tool built using Python/Flask to serve the purpose of monitoring the he
 The tool is still under development, but the basic tasks are completed. 
 
 [Screenshots](#Screenshots)
+
 [Installation](#Installation)
+
 [Docker adaptation](#Docker adaptation)
 
 ## Screenshots
