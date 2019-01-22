@@ -172,3 +172,7 @@ def graph():
     hbarswapchart = hbarswap.render_data_uri()
 
     return render_template('graphs.html', chart=chart, dchart=dchart, hbarchart=hbarchart, hbarswapchart=hbarswapchart)
+
+
+if __name__ == "__main__":
+    app.run(debug=True,host='0.0.0.0')
