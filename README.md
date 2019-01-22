@@ -9,6 +9,7 @@ The tool is still under development, but the basic tasks are completed.
 [Docker](#Docker)
 
 ## Screenshots
+
 <p align="center">
 <img width="500" height="500" src="doc-images/logo.png">
 </p>
