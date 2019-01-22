@@ -32,7 +32,7 @@ The tool is still under development, but the basic tasks are completed.
    
    Next, clone this project into your desired directory and open it:
    
-   `git clone https://github.com/RatebSwais/Linux-system-monitoring-tool.git`
+   `git clone https://github.com/RatebSwais/Pymon.git`
    
-   `cd Linux-system-monitoring-tool`
+   `cd Pymon`
    
