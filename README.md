@@ -32,7 +32,36 @@ The tool is still under development, but the basic tasks are completed.
    
    Next, clone this project into your desired directory and open it:
    
-   `git clone https://github.com/RatebSwais/Linux-system-monitoring-tool.git`
+   `git clone https://github.com/RatebSwais/Pymon.git && cd <your path>/Pymon`
+ 
+   Now, to install Flask, the web framework used for this project:
    
-   `cd Linux-system-monitoring-tool`
+   Install python's virtual environment:
+   ```
+      pip install virtualenv
+      
+      sudo dnf install virtualenv -y
+   ```
+   Create the virtual environment inside the project folder and activate it 
+   ```
+      virtualenv venv
+      
+    . venv/bin/activate
+   ```
    
+   Now, install Flask 
+   
+   `pip install Flask`
+   
+   Install the packages in requirements.txt
+   
+   `pip install -r requirements.txt`
+   
+   It's time to start our app:
+   
+   Tell flask the app file to use then run flask using:
+   ```
+      export FLASK_APP=app.py
+   
+      flask run
+   ```
