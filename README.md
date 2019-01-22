@@ -10,6 +10,8 @@ The tool is still under development, but the basic tasks are completed.
 
 ## Screenshots
 
+This section shows some of the cards displayed in the tool
+
 <p align="center">
 <img width="500" height="500" src="doc-images/logo.png">
 </p>
