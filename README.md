@@ -51,11 +51,11 @@ The tool is still under development, but the basic tasks are completed.
    
    Now, install Flask 
    
-   `pip install Flask`
+   `pip2 install Flask`
    
    Install the packages in requirements.txt
    
-   `pip install -r requirements.txt`
+   `pip2 install -r requirements.txt`
    
    It's time to start our app:
    
