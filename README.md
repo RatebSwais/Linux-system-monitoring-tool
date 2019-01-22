@@ -44,9 +44,9 @@ The tool is still under development, but the basic tasks are completed.
    ```
    Create the virtual environment inside the project folder and activate it 
    ```
-      virtualenv venv
+   virtualenv venv
       
-    . venv/bin/activate
+   . venv/bin/activate
    ```
    
    Now, install Flask 
@@ -61,7 +61,7 @@ The tool is still under development, but the basic tasks are completed.
    
    Tell flask the app file to use then run flask using:
    ```
-      export FLASK_APP=app.py
+   export FLASK_APP=app.py
    
-      flask run
+   flask run
    ```
