@@ -77,11 +77,7 @@ This section shows some of the cards displayed in the tool
    
    flask run
    ```
-2. Ubuntu/Debian based distributions:
-
-   Install Python
    
-   ``
 ## Docker
 
    If you wish to skip the above and use a pre-cooked Docker container, run the docker command below as root:
