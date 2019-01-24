@@ -77,7 +77,11 @@ This section shows some of the cards displayed in the tool
    
    flask run
    ```
+2. Ubuntu/Debian based distributions:
+
+   Install Python
    
+   ``
 ## Docker
 
    If you wish to skip the above and use a pre-cooked Docker container, run the docker command below as root:
@@ -86,9 +90,11 @@ This section shows some of the cards displayed in the tool
    
    If you do not have docker installed, you need to install it first:
    
+   For RHEL/Centos/Fedora:
    `sudo dnf install docker -y`
    
-   
+   For Ubuntu/Debian: 
+   https://docs.docker.com/install/linux/docker-ce/ubuntu/
    
    
    
